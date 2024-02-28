@@ -1,0 +1,97 @@
+
+.editor-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .editor-title {
+    background-color:rgb(250, 252, 252);
+    width: fit-content;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .instrucciones{
+    font-size: 15px; 
+    margin-bottom: 10px;
+  }
+  
+  .editor-wrapper {
+    display: flex;
+    border: 1px solid #a01414;
+    border-radius: 5px;
+    overflow: hidden;
+    flex: 1; /* Añadir esta línea para que el contenedor se expanda según el contenido */
+  }
+  
+  .numero-lineas {
+    width: 50px; /* Ancho fijo para los números de línea */
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-right: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  .numero-linea {
+    font-size: 13px;
+    line-height: 25.2px;
+  }
+  
+  .codigo-editor {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    line-height: 25.2px; /* Ajusta este valor según tu preferencia */
+    outline: none;
+    overflow-x: auto; /* Añadir esta línea para habilitar el desplazamiento horizontal */
+  }
+  .analizar-button {
+    background-color: #010a13;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+  .button-container{
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .analizar-button:hover {
+    background-color: #042242;
+  }
+  
+  .resultado-container {
+    margin-top: 20px;
+  }
+  
+  .resultado-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .resultado-editor {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f7f7f7;
+    overflow: auto;
+    max-height: 200px;
+  }
+  
+  .resultado-editor pre {
+    white-space: pre-wrap;
+    margin: 0;
+  }
