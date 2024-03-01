@@ -51,6 +51,17 @@
     outline: none;
     overflow-x: auto; /* Añadir esta línea para habilitar el desplazamiento horizontal */
   }
+
+  .errores{
+    flex: 1;
+    border: none;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    line-height: 25.2px; /* Ajusta este valor según tu preferencia */
+    outline: none;
+    overflow-x: auto; /* Añadir esta línea para habilitar el desplazamiento horizontal */
+  }
   .analizar-button {
     background-color: #010a13;
     color: #fff;

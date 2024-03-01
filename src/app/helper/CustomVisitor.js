@@ -17,7 +17,7 @@ export default class CustomVisitor extends ZunniScriptVisitor {
   	// Visit a parse tree produced by CodeFileParser#start.
 	visitStart(ctx) {
 	this.visitChildren(ctx);
-    return console.log([this.errors, this.variables]);
+    return [this.errors, this.variables];
 	}
 
 
@@ -50,7 +50,7 @@ export default class CustomVisitor extends ZunniScriptVisitor {
 	visitDeclaracion_invalida(ctx) {
     const pr = ctx.pr().getText();
 		const id = ctx.invalido.text;
-		this.errors.push(`Error: "${id}" no es valido`);
+		this.errors.push(`Error: ${id} no es valido`);
 
 		return [pr, id];
 	}
@@ -135,6 +135,8 @@ export default class CustomVisitor extends ZunniScriptVisitor {
       return variable.value;
     }
   }
+} else {
+	this.errors.push(`Error: "${id}" no está definida`);
 }
 // Si no se encuentra el valor, retornar un valor predeterminado (en este caso, 0)
 return 0;

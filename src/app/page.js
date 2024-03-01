@@ -6,10 +6,12 @@ import './ZScript.css';
 const HomePage = () => {
   const [codigo, setCodigo] = useState("");
   const [resultado, setResultado] = useState("");
+  const [errores, setErrores] = useState([]);
   const [numeroLineas, setNumeroLineas] = useState(1);
   
   const handleChange = (event) => {
     setCodigo(event.target.value);
+    setErrores([]);
   };
 
   useEffect(() => {
@@ -19,10 +21,11 @@ const HomePage = () => {
   }, [codigo]);
 
   const handleAnalizar = () => {
-    const resultado = analizar(codigo);
+    const [errores, resultado] = analizar(codigo);
     setResultado(resultado);
+    console.log(errores);
+    setErrores(errores);
   };
-
 
   const generarNumerosLinea = () => {
     const numerosLinea = [];
@@ -57,6 +60,13 @@ const HomePage = () => {
         <div className="resultado-editor">
           <pre>{resultado}</pre>
         </div> */}
+        <div className='errores'>
+          <ul>
+            {errores.map((error, index) => (
+              <li key={index}>{error}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
