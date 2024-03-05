@@ -56,6 +56,7 @@ export default class CustomVisitor extends ZunniScriptVisitor {
 	}
 
   visitDeclaracion_asignacion(ctx) {
+	console.log("Text")
 	const pr = ctx.pr().getText();
   const id = ctx.ID().getText();
   const valor = this.visit(ctx.expr());
@@ -73,7 +74,7 @@ export default class CustomVisitor extends ZunniScriptVisitor {
 	
 	// Visit a parse tree produced by CodeFileParser#asignaciones.
 	visitAsignaciones(ctx) {
-  const id = ctx.ID().getText();
+  	const id = ctx.ID().getText();
 	const valor = parseInt(ctx.expr().getText()); 
 
     let is_variable_defined = this.variableExist(id);
@@ -97,6 +98,24 @@ export default class CustomVisitor extends ZunniScriptVisitor {
 	visitPr(ctx) {
 	  return this.visitChildren(ctx);
 	}
+
+	// Visit a parse tree produced by ZunniScriptParser#error.
+	visitError(ctx) {
+		const errorMessage = `Error de sintaxis en la línea ${ctx.start.line}`;
+		if (!this.errors.includes(errorMessage)) {
+			this.errors.push(errorMessage);
+		}
+		return null; // No es necesario visitar los hijos de un nodo de error
+	}
+
+		// Visit a parse tree produced by ZunniScriptParser#errorstart.
+		visitErrorstart(ctx) {
+			const errorMessage = `Error en la inicializacion del programa`;
+			if (!this.errors.includes(errorMessage)) {
+				this.errors.push(errorMessage);
+			}
+			return null; // No es necesario visitar los hijos de un nodo de error
+		  }
 
 	// Visit a parse tree produced by ZunniScriptParser#parentesis.
 	visitParentesis(ctx) {

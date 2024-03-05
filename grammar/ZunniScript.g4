@@ -1,7 +1,9 @@
 grammar ZunniScript;
 import CommonLexerRules;
 
-start : INICIO '{' contenido '}'
+start : INICIO LLAVE_ABIERTA contenido LLAVE_CERRADA
+    // |
+    // errorstart
     ;
 
 contenido:
@@ -12,6 +14,8 @@ expresiones:
             declaraciones
             |
             asignaciones
+            // |
+            // error
             ;
 
 declaraciones:
@@ -32,6 +36,9 @@ pr:
         |
         'zhar'
         ;
+
+//error: .+?;
+//errorstart: .+?;
 
 expr: expr op=('*'|'/') expr        # MulDiv
 | expr op=('+'|'-') expr            # SumRes

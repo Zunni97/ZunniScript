@@ -1,6 +1,10 @@
 INICIO=1
-INT=2
-ID=3
-ID_invalido=4
-WS=5
+LLAVE_ABIERTA=2
+LLAVE_CERRADA=3
+INT=4
+ID=5
+ID_invalido=6
+WS=7
 'iniciar'=1
+'{'=2
+'}'=3

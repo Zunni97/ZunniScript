@@ -16,8 +16,9 @@ public class ZunniScriptParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, MUL=9, 
-		DIV=10, SUM=11, RES=12, INICIO=13, INT=14, ID=15, ID_invalido=16, WS=17;
+		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, MUL=7, DIV=8, SUM=9, RES=10, 
+		INICIO=11, LLAVE_ABIERTA=12, LLAVE_CERRADA=13, INT=14, ID=15, ID_invalido=16, 
+		WS=17;
 	public static final int
 		RULE_start = 0, RULE_contenido = 1, RULE_expresiones = 2, RULE_declaraciones = 3, 
 		RULE_asignaciones = 4, RULE_pr = 5, RULE_expr = 6;
@@ -31,15 +32,16 @@ public class ZunniScriptParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'{'", "'}'", "'='", "'zint'", "'floz'", "'zhar'", "'('", "')'", 
-			"'*'", "'/'", "'+'", "'-'", "'iniciar'"
+			null, "'='", "'zint'", "'floz'", "'zhar'", "'('", "')'", "'*'", "'/'", 
+			"'+'", "'-'", "'iniciar'", "'{'", "'}'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, null, null, null, null, null, null, "MUL", "DIV", "SUM", 
-			"RES", "INICIO", "INT", "ID", "ID_invalido", "WS"
+			null, null, null, null, null, null, null, "MUL", "DIV", "SUM", "RES", 
+			"INICIO", "LLAVE_ABIERTA", "LLAVE_CERRADA", "INT", "ID", "ID_invalido", 
+			"WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -96,9 +98,11 @@ public class ZunniScriptParser extends Parser {
 	@SuppressWarnings("CheckReturnValue")
 	public static class StartContext extends ParserRuleContext {
 		public TerminalNode INICIO() { return getToken(ZunniScriptParser.INICIO, 0); }
+		public TerminalNode LLAVE_ABIERTA() { return getToken(ZunniScriptParser.LLAVE_ABIERTA, 0); }
 		public ContenidoContext contenido() {
 			return getRuleContext(ContenidoContext.class,0);
 		}
+		public TerminalNode LLAVE_CERRADA() { return getToken(ZunniScriptParser.LLAVE_CERRADA, 0); }
 		public StartContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -114,11 +118,11 @@ public class ZunniScriptParser extends Parser {
 			setState(14);
 			match(INICIO);
 			setState(15);
-			match(T__0);
+			match(LLAVE_ABIERTA);
 			setState(16);
 			contenido();
 			setState(17);
-			match(T__1);
+			match(LLAVE_CERRADA);
 			}
 		}
 		catch (RecognitionException re) {
@@ -156,7 +160,7 @@ public class ZunniScriptParser extends Parser {
 			setState(22);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 32880L) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 32796L) != 0)) {
 				{
 				{
 				setState(19);
@@ -201,9 +205,9 @@ public class ZunniScriptParser extends Parser {
 			setState(27);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
+			case T__1:
+			case T__2:
 			case T__3:
-			case T__4:
-			case T__5:
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(25);
@@ -320,7 +324,7 @@ public class ZunniScriptParser extends Parser {
 				setState(36);
 				match(ID);
 				setState(37);
-				match(T__2);
+				match(T__0);
 				setState(38);
 				expr(0);
 				}
@@ -359,7 +363,7 @@ public class ZunniScriptParser extends Parser {
 			setState(42);
 			match(ID);
 			setState(43);
-			match(T__2);
+			match(T__0);
 			setState(44);
 			expr(0);
 			}
@@ -392,7 +396,7 @@ public class ZunniScriptParser extends Parser {
 			{
 			setState(46);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 112L) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 28L) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -507,17 +511,17 @@ public class ZunniScriptParser extends Parser {
 				match(ID);
 				}
 				break;
-			case T__6:
+			case T__4:
 				{
 				_localctx = new ParentesisContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 				setState(51);
-				match(T__6);
+				match(T__4);
 				setState(52);
 				expr(0);
 				setState(53);
-				match(T__7);
+				match(T__5);
 				}
 				break;
 			default:
@@ -628,35 +632,36 @@ public class ZunniScriptParser extends Parser {
 		"\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0005\u0006@\b"+
 		"\u0006\n\u0006\f\u0006C\t\u0006\u0001\u0006\u0000\u0001\f\u0007\u0000"+
 		"\u0002\u0004\u0006\b\n\f\u0000\u0004\u0002\u0000\u000e\u000e\u0010\u0010"+
-		"\u0001\u0000\u0004\u0006\u0001\u0000\t\n\u0001\u0000\u000b\fE\u0000\u000e"+
+		"\u0001\u0000\u0002\u0004\u0001\u0000\u0007\b\u0001\u0000\t\nE\u0000\u000e"+
 		"\u0001\u0000\u0000\u0000\u0002\u0016\u0001\u0000\u0000\u0000\u0004\u001b"+
 		"\u0001\u0000\u0000\u0000\u0006(\u0001\u0000\u0000\u0000\b*\u0001\u0000"+
 		"\u0000\u0000\n.\u0001\u0000\u0000\u0000\f7\u0001\u0000\u0000\u0000\u000e"+
-		"\u000f\u0005\r\u0000\u0000\u000f\u0010\u0005\u0001\u0000\u0000\u0010\u0011"+
-		"\u0003\u0002\u0001\u0000\u0011\u0012\u0005\u0002\u0000\u0000\u0012\u0001"+
-		"\u0001\u0000\u0000\u0000\u0013\u0015\u0003\u0004\u0002\u0000\u0014\u0013"+
-		"\u0001\u0000\u0000\u0000\u0015\u0018\u0001\u0000\u0000\u0000\u0016\u0014"+
-		"\u0001\u0000\u0000\u0000\u0016\u0017\u0001\u0000\u0000\u0000\u0017\u0003"+
-		"\u0001\u0000\u0000\u0000\u0018\u0016\u0001\u0000\u0000\u0000\u0019\u001c"+
-		"\u0003\u0006\u0003\u0000\u001a\u001c\u0003\b\u0004\u0000\u001b\u0019\u0001"+
-		"\u0000\u0000\u0000\u001b\u001a\u0001\u0000\u0000\u0000\u001c\u0005\u0001"+
-		"\u0000\u0000\u0000\u001d\u001e\u0003\n\u0005\u0000\u001e\u001f\u0005\u000f"+
-		"\u0000\u0000\u001f)\u0001\u0000\u0000\u0000 !\u0003\n\u0005\u0000!\"\u0007"+
-		"\u0000\u0000\u0000\")\u0001\u0000\u0000\u0000#$\u0003\n\u0005\u0000$%"+
-		"\u0005\u000f\u0000\u0000%&\u0005\u0003\u0000\u0000&\'\u0003\f\u0006\u0000"+
-		"\')\u0001\u0000\u0000\u0000(\u001d\u0001\u0000\u0000\u0000( \u0001\u0000"+
+		"\u000f\u0005\u000b\u0000\u0000\u000f\u0010\u0005\f\u0000\u0000\u0010\u0011"+
+		"\u0003\u0002\u0001\u0000\u0011\u0012\u0005\r\u0000\u0000\u0012\u0001\u0001"+
+		"\u0000\u0000\u0000\u0013\u0015\u0003\u0004\u0002\u0000\u0014\u0013\u0001"+
+		"\u0000\u0000\u0000\u0015\u0018\u0001\u0000\u0000\u0000\u0016\u0014\u0001"+
+		"\u0000\u0000\u0000\u0016\u0017\u0001\u0000\u0000\u0000\u0017\u0003\u0001"+
+		"\u0000\u0000\u0000\u0018\u0016\u0001\u0000\u0000\u0000\u0019\u001c\u0003"+
+		"\u0006\u0003\u0000\u001a\u001c\u0003\b\u0004\u0000\u001b\u0019\u0001\u0000"+
+		"\u0000\u0000\u001b\u001a\u0001\u0000\u0000\u0000\u001c\u0005\u0001\u0000"+
+		"\u0000\u0000\u001d\u001e\u0003\n\u0005\u0000\u001e\u001f\u0005\u000f\u0000"+
+		"\u0000\u001f)\u0001\u0000\u0000\u0000 !\u0003\n\u0005\u0000!\"\u0007\u0000"+
+		"\u0000\u0000\")\u0001\u0000\u0000\u0000#$\u0003\n\u0005\u0000$%\u0005"+
+		"\u000f\u0000\u0000%&\u0005\u0001\u0000\u0000&\'\u0003\f\u0006\u0000\'"+
+		")\u0001\u0000\u0000\u0000(\u001d\u0001\u0000\u0000\u0000( \u0001\u0000"+
 		"\u0000\u0000(#\u0001\u0000\u0000\u0000)\u0007\u0001\u0000\u0000\u0000"+
-		"*+\u0005\u000f\u0000\u0000+,\u0005\u0003\u0000\u0000,-\u0003\f\u0006\u0000"+
+		"*+\u0005\u000f\u0000\u0000+,\u0005\u0001\u0000\u0000,-\u0003\f\u0006\u0000"+
 		"-\t\u0001\u0000\u0000\u0000./\u0007\u0001\u0000\u0000/\u000b\u0001\u0000"+
 		"\u0000\u000001\u0006\u0006\uffff\uffff\u000018\u0005\u000e\u0000\u0000"+
-		"28\u0005\u000f\u0000\u000034\u0005\u0007\u0000\u000045\u0003\f\u0006\u0000"+
-		"56\u0005\b\u0000\u000068\u0001\u0000\u0000\u000070\u0001\u0000\u0000\u0000"+
-		"72\u0001\u0000\u0000\u000073\u0001\u0000\u0000\u00008A\u0001\u0000\u0000"+
-		"\u00009:\n\u0005\u0000\u0000:;\u0007\u0002\u0000\u0000;@\u0003\f\u0006"+
-		"\u0006<=\n\u0004\u0000\u0000=>\u0007\u0003\u0000\u0000>@\u0003\f\u0006"+
-		"\u0005?9\u0001\u0000\u0000\u0000?<\u0001\u0000\u0000\u0000@C\u0001\u0000"+
-		"\u0000\u0000A?\u0001\u0000\u0000\u0000AB\u0001\u0000\u0000\u0000B\r\u0001"+
-		"\u0000\u0000\u0000CA\u0001\u0000\u0000\u0000\u0006\u0016\u001b(7?A";
+		"28\u0005\u000f\u0000\u000034\u0005\u0005\u0000\u000045\u0003\f\u0006\u0000"+
+		"56\u0005\u0006\u0000\u000068\u0001\u0000\u0000\u000070\u0001\u0000\u0000"+
+		"\u000072\u0001\u0000\u0000\u000073\u0001\u0000\u0000\u00008A\u0001\u0000"+
+		"\u0000\u00009:\n\u0005\u0000\u0000:;\u0007\u0002\u0000\u0000;@\u0003\f"+
+		"\u0006\u0006<=\n\u0004\u0000\u0000=>\u0007\u0003\u0000\u0000>@\u0003\f"+
+		"\u0006\u0005?9\u0001\u0000\u0000\u0000?<\u0001\u0000\u0000\u0000@C\u0001"+
+		"\u0000\u0000\u0000A?\u0001\u0000\u0000\u0000AB\u0001\u0000\u0000\u0000"+
+		"B\r\u0001\u0000\u0000\u0000CA\u0001\u0000\u0000\u0000\u0006\u0016\u001b"+
+		"(7?A";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

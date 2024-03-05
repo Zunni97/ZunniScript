@@ -55,6 +55,9 @@
   .errores{
     flex: 1;
     border: none;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: red;
     padding: 10px;
     font-family: 'Courier New', Courier, monospace;
     font-size: 15px;
