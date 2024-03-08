@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ZUNNISCRIPT
 
-## Getting Started
+ZunniScript es un lenguaje de programacion basado en JavaScript pero con una sintaxis mas **Zunni**.
 
-First, run the development server:
+## COMANDOS EN ZUNNISCRIPT
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Para comenzar a usar el lenguaje debemos comenzar con la palabra "iniciar" seguido de una llave abierta para comenzar a declarar nuestras variables y una llave cerrada al final del archivo. 
+
+### Aqui esta el ejemplo de como se debe iniciar nuestro archivo:
+
+```
+iniciar {
+
+}
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## PALABRAS RESERVADAS
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Para declarar variables es necesario ponerlo dentro de las llaves, por el momento solo acepta numeros enteros.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- ***ZINT:*** La palabra zint nos sirve para declarar numeros enteros.
+- ***FLOZ:*** La palabra floz funciona para declarar numeros flotantes.
+- ***ZHAR:*** Con la palabra zhar podemos declarar caracteres.
+- ***ZIMP:*** Esta palabra nos sirve para imprimir variables. Para utilizarla es necesario escribir "zimp" seguido de parentesis y la variable a imprimir dentro de ellos.
 
-## Learn More
+### Aqui tenemos un ejemplo de como declarar variables:
+  
+```
+iniciar {
+zint a = 20
+}
+```
+### Aqui se muestra como imprimir una variable:
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+iniciar {
+zint a = 20
+zimp (a)
+}
+```
