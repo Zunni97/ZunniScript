@@ -15,7 +15,6 @@ class ExprErrorListener extends antlr4.error.ErrorListener{
   }
 
   syntaxError (recognizer, offendingSymbol, line, column, msg, err) {
-    console.log("texto");
     this.visitor.errors.push(`Error de sintaxis en linea: ${line}`);
   }
 }

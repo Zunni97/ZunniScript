@@ -16,6 +16,7 @@ export default class CustomVisitor extends ZunniScriptVisitor {
 	}
   	// Visit a parse tree produced by CodeFileParser#start.
 	visitStart(ctx) {
+	console.log('Visitando Start');
 	this.visitChildren(ctx);
     return [this.errors, this.variables];
 	}
@@ -23,16 +24,19 @@ export default class CustomVisitor extends ZunniScriptVisitor {
 
 	// Visit a parse tree produced by CodeFileParser#content.
 	visitContenido(ctx) {
+		console.log('Visitando Contenido');
 	  return this.visitChildren(ctx);
 	}
 
   // Visit a parse tree produced by ZunniScriptParser#expresiones.
 	visitExpresiones(ctx) {
+		console.log('Visitando Expresiones');
 	  return this.visitChildren(ctx);
 	}
 
 	// Visit a parse tree produced by CodeFileParser#declaracion.
 	visitDeclaracion(ctx) {
+		console.log('Visitando Declaracion');
     const pr = ctx.pr().getText();
 		const id = ctx.ID().getText();
 		
@@ -93,6 +97,18 @@ export default class CustomVisitor extends ZunniScriptVisitor {
 
     return [id, valor];
 }
+
+	// Visit a parse tree produced by ZunniScriptParser#imprimir.
+	visitImprimir(ctx) {
+    // Obtener la expresión a imprimir
+    const expresion = this.visit(ctx.expr());
+
+    // Imprimir la expresión en la página
+    console.log(expresion); // O utiliza alguna otra lógica para mostrarlo en tu página
+
+    // No necesitas devolver ningún valor
+    return null;
+	  }
 
 	// Visit a parse tree produced by ZunniScriptParser#pr.
 	visitPr(ctx) {
@@ -155,7 +171,7 @@ export default class CustomVisitor extends ZunniScriptVisitor {
     }
   }
 } else {
-	this.errors.push(`Error: "${id}" no está definida`);
+	this.errors.push(`Error: "${id}" no se encuentra`);
 }
 // Si no se encuentra el valor, retornar un valor predeterminado (en este caso, 0)
 return 0;

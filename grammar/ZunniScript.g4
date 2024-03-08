@@ -10,7 +10,8 @@ contenido:
             expresiones*
             ;
 
-expresiones:
+expresiones: imprimir
+            |
             declaraciones
             |
             asignaciones
@@ -23,10 +24,12 @@ declaraciones:
             |
             pr invalido=(ID_invalido|INT)	              #declaracion_invalida
             |
-            pr ID '=' expr                                #declaracion_asignacion
+            pr ID IGUAL expr                                #declaracion_asignacion
             ;
 
-asignaciones: ID '=' expr
+imprimir: IMPRIMIR PARENT_ABIERTO expr PARENT_CERRADO;
+
+asignaciones: ID IGUAL expr
 ;
 
 pr:

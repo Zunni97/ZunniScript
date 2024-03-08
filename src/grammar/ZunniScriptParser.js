@@ -3,26 +3,28 @@
 import antlr4 from 'antlr4';
 import ZunniScriptVisitor from './ZunniScriptVisitor.js';
 
-const serializedATN = [4,1,17,69,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,
-2,5,7,5,2,6,7,6,1,0,1,0,1,0,1,0,1,0,1,1,5,1,21,8,1,10,1,12,1,24,9,1,1,2,
-1,2,3,2,28,8,2,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,3,3,41,8,3,1,
-4,1,4,1,4,1,4,1,5,1,5,1,6,1,6,1,6,1,6,1,6,1,6,1,6,3,6,56,8,6,1,6,1,6,1,6,
-1,6,1,6,1,6,5,6,64,8,6,10,6,12,6,67,9,6,1,6,0,1,12,7,0,2,4,6,8,10,12,0,4,
-2,0,14,14,16,16,1,0,2,4,1,0,7,8,1,0,9,10,69,0,14,1,0,0,0,2,22,1,0,0,0,4,
-27,1,0,0,0,6,40,1,0,0,0,8,42,1,0,0,0,10,46,1,0,0,0,12,55,1,0,0,0,14,15,5,
-11,0,0,15,16,5,12,0,0,16,17,3,2,1,0,17,18,5,13,0,0,18,1,1,0,0,0,19,21,3,
-4,2,0,20,19,1,0,0,0,21,24,1,0,0,0,22,20,1,0,0,0,22,23,1,0,0,0,23,3,1,0,0,
-0,24,22,1,0,0,0,25,28,3,6,3,0,26,28,3,8,4,0,27,25,1,0,0,0,27,26,1,0,0,0,
-28,5,1,0,0,0,29,30,3,10,5,0,30,31,5,15,0,0,31,41,1,0,0,0,32,33,3,10,5,0,
-33,34,7,0,0,0,34,41,1,0,0,0,35,36,3,10,5,0,36,37,5,15,0,0,37,38,5,1,0,0,
-38,39,3,12,6,0,39,41,1,0,0,0,40,29,1,0,0,0,40,32,1,0,0,0,40,35,1,0,0,0,41,
-7,1,0,0,0,42,43,5,15,0,0,43,44,5,1,0,0,44,45,3,12,6,0,45,9,1,0,0,0,46,47,
-7,1,0,0,47,11,1,0,0,0,48,49,6,6,-1,0,49,56,5,14,0,0,50,56,5,15,0,0,51,52,
-5,5,0,0,52,53,3,12,6,0,53,54,5,6,0,0,54,56,1,0,0,0,55,48,1,0,0,0,55,50,1,
-0,0,0,55,51,1,0,0,0,56,65,1,0,0,0,57,58,10,5,0,0,58,59,7,2,0,0,59,64,3,12,
-6,6,60,61,10,4,0,0,61,62,7,3,0,0,62,64,3,12,6,5,63,57,1,0,0,0,63,60,1,0,
-0,0,64,67,1,0,0,0,65,63,1,0,0,0,65,66,1,0,0,0,66,13,1,0,0,0,67,65,1,0,0,
-0,6,22,27,40,55,63,65];
+const serializedATN = [4,1,18,77,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,
+2,5,7,5,2,6,7,6,2,7,7,7,1,0,1,0,1,0,1,0,1,0,1,1,5,1,23,8,1,10,1,12,1,26,
+9,1,1,2,1,2,1,2,3,2,31,8,2,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,3,
+3,44,8,3,1,4,1,4,1,4,1,4,1,4,1,5,1,5,1,5,1,5,1,6,1,6,1,7,1,7,1,7,1,7,1,7,
+1,7,1,7,3,7,64,8,7,1,7,1,7,1,7,1,7,1,7,1,7,5,7,72,8,7,10,7,12,7,75,9,7,1,
+7,0,1,14,8,0,2,4,6,8,10,12,14,0,4,2,0,12,12,14,14,1,0,1,3,1,0,4,5,1,0,6,
+7,77,0,16,1,0,0,0,2,24,1,0,0,0,4,30,1,0,0,0,6,43,1,0,0,0,8,45,1,0,0,0,10,
+50,1,0,0,0,12,54,1,0,0,0,14,63,1,0,0,0,16,17,5,8,0,0,17,18,5,10,0,0,18,19,
+3,2,1,0,19,20,5,11,0,0,20,1,1,0,0,0,21,23,3,4,2,0,22,21,1,0,0,0,23,26,1,
+0,0,0,24,22,1,0,0,0,24,25,1,0,0,0,25,3,1,0,0,0,26,24,1,0,0,0,27,31,3,8,4,
+0,28,31,3,6,3,0,29,31,3,10,5,0,30,27,1,0,0,0,30,28,1,0,0,0,30,29,1,0,0,0,
+31,5,1,0,0,0,32,33,3,12,6,0,33,34,5,13,0,0,34,44,1,0,0,0,35,36,3,12,6,0,
+36,37,7,0,0,0,37,44,1,0,0,0,38,39,3,12,6,0,39,40,5,13,0,0,40,41,5,15,0,0,
+41,42,3,14,7,0,42,44,1,0,0,0,43,32,1,0,0,0,43,35,1,0,0,0,43,38,1,0,0,0,44,
+7,1,0,0,0,45,46,5,9,0,0,46,47,5,16,0,0,47,48,3,14,7,0,48,49,5,17,0,0,49,
+9,1,0,0,0,50,51,5,13,0,0,51,52,5,15,0,0,52,53,3,14,7,0,53,11,1,0,0,0,54,
+55,7,1,0,0,55,13,1,0,0,0,56,57,6,7,-1,0,57,64,5,12,0,0,58,64,5,13,0,0,59,
+60,5,16,0,0,60,61,3,14,7,0,61,62,5,17,0,0,62,64,1,0,0,0,63,56,1,0,0,0,63,
+58,1,0,0,0,63,59,1,0,0,0,64,73,1,0,0,0,65,66,10,5,0,0,66,67,7,2,0,0,67,72,
+3,14,7,6,68,69,10,4,0,0,69,70,7,3,0,0,70,72,3,14,7,5,71,65,1,0,0,0,71,68,
+1,0,0,0,72,75,1,0,0,0,73,71,1,0,0,0,73,74,1,0,0,0,74,15,1,0,0,0,75,73,1,
+0,0,0,6,24,30,43,63,71,73];
 
 
 const atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
@@ -34,15 +36,16 @@ const sharedContextCache = new antlr4.atn.PredictionContextCache();
 export default class ZunniScriptParser extends antlr4.Parser {
 
     static grammarFileName = "ZunniScript.g4";
-    static literalNames = [ null, "'='", "'zint'", "'floz'", "'zhar'", "'('", 
-                            "')'", "'*'", "'/'", "'+'", "'-'", "'iniciar'", 
-                            "'{'", "'}'" ];
-    static symbolicNames = [ null, null, null, null, null, null, null, "MUL", 
-                             "DIV", "SUM", "RES", "INICIO", "LLAVE_ABIERTA", 
+    static literalNames = [ null, "'zint'", "'floz'", "'zhar'", "'*'", "'/'", 
+                            "'+'", "'-'", "'iniciar'", "'zimp'", "'{'", 
+                            "'}'", null, null, null, "'='", "'('", "')'" ];
+    static symbolicNames = [ null, null, null, null, "MUL", "DIV", "SUM", 
+                             "RES", "INICIO", "IMPRIMIR", "LLAVE_ABIERTA", 
                              "LLAVE_CERRADA", "INT", "ID", "ID_invalido", 
+                             "IGUAL", "PARENT_ABIERTO", "PARENT_CERRADO", 
                              "WS" ];
     static ruleNames = [ "start", "contenido", "expresiones", "declaraciones", 
-                         "asignaciones", "pr", "expr" ];
+                         "imprimir", "asignaciones", "pr", "expr" ];
 
     constructor(input) {
         super(input);
@@ -54,7 +57,7 @@ export default class ZunniScriptParser extends antlr4.Parser {
 
     sempred(localctx, ruleIndex, predIndex) {
     	switch(ruleIndex) {
-    	case 6:
+    	case 7:
     	    		return this.expr_sempred(localctx, predIndex);
         default:
             throw "No predicate with index:" + ruleIndex;
@@ -80,13 +83,13 @@ export default class ZunniScriptParser extends antlr4.Parser {
 	    this.enterRule(localctx, 0, ZunniScriptParser.RULE_start);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 14;
-	        this.match(ZunniScriptParser.INICIO);
-	        this.state = 15;
-	        this.match(ZunniScriptParser.LLAVE_ABIERTA);
 	        this.state = 16;
-	        this.contenido();
+	        this.match(ZunniScriptParser.INICIO);
 	        this.state = 17;
+	        this.match(ZunniScriptParser.LLAVE_ABIERTA);
+	        this.state = 18;
+	        this.contenido();
+	        this.state = 19;
 	        this.match(ZunniScriptParser.LLAVE_CERRADA);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -110,13 +113,13 @@ export default class ZunniScriptParser extends antlr4.Parser {
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 22;
+	        this.state = 24;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        while((((_la) & ~0x1f) === 0 && ((1 << _la) & 32796) !== 0)) {
-	            this.state = 19;
+	        while((((_la) & ~0x1f) === 0 && ((1 << _la) & 8718) !== 0)) {
+	            this.state = 21;
 	            this.expresiones();
-	            this.state = 24;
+	            this.state = 26;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        }
@@ -140,19 +143,24 @@ export default class ZunniScriptParser extends antlr4.Parser {
 	    let localctx = new ExpresionesContext(this, this._ctx, this.state);
 	    this.enterRule(localctx, 4, ZunniScriptParser.RULE_expresiones);
 	    try {
-	        this.state = 27;
+	        this.state = 30;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
+	        case 9:
+	            this.enterOuterAlt(localctx, 1);
+	            this.state = 27;
+	            this.imprimir();
+	            break;
+	        case 1:
 	        case 2:
 	        case 3:
-	        case 4:
-	            this.enterOuterAlt(localctx, 1);
-	            this.state = 25;
+	            this.enterOuterAlt(localctx, 2);
+	            this.state = 28;
 	            this.declaraciones();
 	            break;
-	        case 15:
-	            this.enterOuterAlt(localctx, 2);
-	            this.state = 26;
+	        case 13:
+	            this.enterOuterAlt(localctx, 3);
+	            this.state = 29;
 	            this.asignaciones();
 	            break;
 	        default:
@@ -179,28 +187,28 @@ export default class ZunniScriptParser extends antlr4.Parser {
 	    this.enterRule(localctx, 6, ZunniScriptParser.RULE_declaraciones);
 	    var _la = 0;
 	    try {
-	        this.state = 40;
+	        this.state = 43;
 	        this._errHandler.sync(this);
 	        var la_ = this._interp.adaptivePredict(this._input,2,this._ctx);
 	        switch(la_) {
 	        case 1:
 	            localctx = new DeclaracionContext(this, localctx);
 	            this.enterOuterAlt(localctx, 1);
-	            this.state = 29;
+	            this.state = 32;
 	            this.pr();
-	            this.state = 30;
+	            this.state = 33;
 	            this.match(ZunniScriptParser.ID);
 	            break;
 
 	        case 2:
 	            localctx = new Declaracion_invalidaContext(this, localctx);
 	            this.enterOuterAlt(localctx, 2);
-	            this.state = 32;
+	            this.state = 35;
 	            this.pr();
-	            this.state = 33;
+	            this.state = 36;
 	            localctx.invalido = this._input.LT(1);
 	            _la = this._input.LA(1);
-	            if(!(_la===14 || _la===16)) {
+	            if(!(_la===12 || _la===14)) {
 	                localctx.invalido = this._errHandler.recoverInline(this);
 	            }
 	            else {
@@ -212,13 +220,13 @@ export default class ZunniScriptParser extends antlr4.Parser {
 	        case 3:
 	            localctx = new Declaracion_asignacionContext(this, localctx);
 	            this.enterOuterAlt(localctx, 3);
-	            this.state = 35;
-	            this.pr();
-	            this.state = 36;
-	            this.match(ZunniScriptParser.ID);
-	            this.state = 37;
-	            this.match(ZunniScriptParser.T__0);
 	            this.state = 38;
+	            this.pr();
+	            this.state = 39;
+	            this.match(ZunniScriptParser.ID);
+	            this.state = 40;
+	            this.match(ZunniScriptParser.IGUAL);
+	            this.state = 41;
 	            this.expr(0);
 	            break;
 
@@ -239,16 +247,45 @@ export default class ZunniScriptParser extends antlr4.Parser {
 
 
 
-	asignaciones() {
-	    let localctx = new AsignacionesContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 8, ZunniScriptParser.RULE_asignaciones);
+	imprimir() {
+	    let localctx = new ImprimirContext(this, this._ctx, this.state);
+	    this.enterRule(localctx, 8, ZunniScriptParser.RULE_imprimir);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 42;
+	        this.state = 45;
+	        this.match(ZunniScriptParser.IMPRIMIR);
+	        this.state = 46;
+	        this.match(ZunniScriptParser.PARENT_ABIERTO);
+	        this.state = 47;
+	        this.expr(0);
+	        this.state = 48;
+	        this.match(ZunniScriptParser.PARENT_CERRADO);
+	    } catch (re) {
+	    	if(re instanceof antlr4.error.RecognitionException) {
+		        localctx.exception = re;
+		        this._errHandler.reportError(this, re);
+		        this._errHandler.recover(this, re);
+		    } else {
+		    	throw re;
+		    }
+	    } finally {
+	        this.exitRule();
+	    }
+	    return localctx;
+	}
+
+
+
+	asignaciones() {
+	    let localctx = new AsignacionesContext(this, this._ctx, this.state);
+	    this.enterRule(localctx, 10, ZunniScriptParser.RULE_asignaciones);
+	    try {
+	        this.enterOuterAlt(localctx, 1);
+	        this.state = 50;
 	        this.match(ZunniScriptParser.ID);
-	        this.state = 43;
-	        this.match(ZunniScriptParser.T__0);
-	        this.state = 44;
+	        this.state = 51;
+	        this.match(ZunniScriptParser.IGUAL);
+	        this.state = 52;
 	        this.expr(0);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -268,13 +305,13 @@ export default class ZunniScriptParser extends antlr4.Parser {
 
 	pr() {
 	    let localctx = new PrContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 10, ZunniScriptParser.RULE_pr);
+	    this.enterRule(localctx, 12, ZunniScriptParser.RULE_pr);
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 46;
+	        this.state = 54;
 	        _la = this._input.LA(1);
-	        if(!((((_la) & ~0x1f) === 0 && ((1 << _la) & 28) !== 0))) {
+	        if(!((((_la) & ~0x1f) === 0 && ((1 << _la) & 14) !== 0))) {
 	        this._errHandler.recoverInline(this);
 	        }
 	        else {
@@ -304,45 +341,45 @@ export default class ZunniScriptParser extends antlr4.Parser {
 	    const _parentState = this.state;
 	    let localctx = new ExprContext(this, this._ctx, _parentState);
 	    let _prevctx = localctx;
-	    const _startState = 12;
-	    this.enterRecursionRule(localctx, 12, ZunniScriptParser.RULE_expr, _p);
+	    const _startState = 14;
+	    this.enterRecursionRule(localctx, 14, ZunniScriptParser.RULE_expr, _p);
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 55;
+	        this.state = 63;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
-	        case 14:
+	        case 12:
 	            localctx = new IntContext(this, localctx);
 	            this._ctx = localctx;
 	            _prevctx = localctx;
 
-	            this.state = 49;
+	            this.state = 57;
 	            this.match(ZunniScriptParser.INT);
 	            break;
-	        case 15:
+	        case 13:
 	            localctx = new IdContext(this, localctx);
 	            this._ctx = localctx;
 	            _prevctx = localctx;
-	            this.state = 50;
+	            this.state = 58;
 	            this.match(ZunniScriptParser.ID);
 	            break;
-	        case 5:
+	        case 16:
 	            localctx = new ParentesisContext(this, localctx);
 	            this._ctx = localctx;
 	            _prevctx = localctx;
-	            this.state = 51;
-	            this.match(ZunniScriptParser.T__4);
-	            this.state = 52;
+	            this.state = 59;
+	            this.match(ZunniScriptParser.PARENT_ABIERTO);
+	            this.state = 60;
 	            this.expr(0);
-	            this.state = 53;
-	            this.match(ZunniScriptParser.T__5);
+	            this.state = 61;
+	            this.match(ZunniScriptParser.PARENT_CERRADO);
 	            break;
 	        default:
 	            throw new antlr4.error.NoViableAltException(this);
 	        }
 	        this._ctx.stop = this._input.LT(-1);
-	        this.state = 65;
+	        this.state = 73;
 	        this._errHandler.sync(this);
 	        var _alt = this._interp.adaptivePredict(this._input,5,this._ctx)
 	        while(_alt!=2 && _alt!=antlr4.atn.ATN.INVALID_ALT_NUMBER) {
@@ -351,55 +388,55 @@ export default class ZunniScriptParser extends antlr4.Parser {
 	                    this.triggerExitRuleEvent();
 	                }
 	                _prevctx = localctx;
-	                this.state = 63;
+	                this.state = 71;
 	                this._errHandler.sync(this);
 	                var la_ = this._interp.adaptivePredict(this._input,4,this._ctx);
 	                switch(la_) {
 	                case 1:
 	                    localctx = new MulDivContext(this, new ExprContext(this, _parentctx, _parentState));
 	                    this.pushNewRecursionContext(localctx, _startState, ZunniScriptParser.RULE_expr);
-	                    this.state = 57;
+	                    this.state = 65;
 	                    if (!( this.precpred(this._ctx, 5))) {
 	                        throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 5)");
 	                    }
-	                    this.state = 58;
+	                    this.state = 66;
 	                    localctx.op = this._input.LT(1);
 	                    _la = this._input.LA(1);
-	                    if(!(_la===7 || _la===8)) {
+	                    if(!(_la===4 || _la===5)) {
 	                        localctx.op = this._errHandler.recoverInline(this);
 	                    }
 	                    else {
 	                    	this._errHandler.reportMatch(this);
 	                        this.consume();
 	                    }
-	                    this.state = 59;
+	                    this.state = 67;
 	                    this.expr(6);
 	                    break;
 
 	                case 2:
 	                    localctx = new SumResContext(this, new ExprContext(this, _parentctx, _parentState));
 	                    this.pushNewRecursionContext(localctx, _startState, ZunniScriptParser.RULE_expr);
-	                    this.state = 60;
+	                    this.state = 68;
 	                    if (!( this.precpred(this._ctx, 4))) {
 	                        throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 4)");
 	                    }
-	                    this.state = 61;
+	                    this.state = 69;
 	                    localctx.op = this._input.LT(1);
 	                    _la = this._input.LA(1);
-	                    if(!(_la===9 || _la===10)) {
+	                    if(!(_la===6 || _la===7)) {
 	                        localctx.op = this._errHandler.recoverInline(this);
 	                    }
 	                    else {
 	                    	this._errHandler.reportMatch(this);
 	                        this.consume();
 	                    }
-	                    this.state = 62;
+	                    this.state = 70;
 	                    this.expr(5);
 	                    break;
 
 	                } 
 	            }
-	            this.state = 67;
+	            this.state = 75;
 	            this._errHandler.sync(this);
 	            _alt = this._interp.adaptivePredict(this._input,5,this._ctx);
 	        }
@@ -425,28 +462,30 @@ ZunniScriptParser.EOF = antlr4.Token.EOF;
 ZunniScriptParser.T__0 = 1;
 ZunniScriptParser.T__1 = 2;
 ZunniScriptParser.T__2 = 3;
-ZunniScriptParser.T__3 = 4;
-ZunniScriptParser.T__4 = 5;
-ZunniScriptParser.T__5 = 6;
-ZunniScriptParser.MUL = 7;
-ZunniScriptParser.DIV = 8;
-ZunniScriptParser.SUM = 9;
-ZunniScriptParser.RES = 10;
-ZunniScriptParser.INICIO = 11;
-ZunniScriptParser.LLAVE_ABIERTA = 12;
-ZunniScriptParser.LLAVE_CERRADA = 13;
-ZunniScriptParser.INT = 14;
-ZunniScriptParser.ID = 15;
-ZunniScriptParser.ID_invalido = 16;
-ZunniScriptParser.WS = 17;
+ZunniScriptParser.MUL = 4;
+ZunniScriptParser.DIV = 5;
+ZunniScriptParser.SUM = 6;
+ZunniScriptParser.RES = 7;
+ZunniScriptParser.INICIO = 8;
+ZunniScriptParser.IMPRIMIR = 9;
+ZunniScriptParser.LLAVE_ABIERTA = 10;
+ZunniScriptParser.LLAVE_CERRADA = 11;
+ZunniScriptParser.INT = 12;
+ZunniScriptParser.ID = 13;
+ZunniScriptParser.ID_invalido = 14;
+ZunniScriptParser.IGUAL = 15;
+ZunniScriptParser.PARENT_ABIERTO = 16;
+ZunniScriptParser.PARENT_CERRADO = 17;
+ZunniScriptParser.WS = 18;
 
 ZunniScriptParser.RULE_start = 0;
 ZunniScriptParser.RULE_contenido = 1;
 ZunniScriptParser.RULE_expresiones = 2;
 ZunniScriptParser.RULE_declaraciones = 3;
-ZunniScriptParser.RULE_asignaciones = 4;
-ZunniScriptParser.RULE_pr = 5;
-ZunniScriptParser.RULE_expr = 6;
+ZunniScriptParser.RULE_imprimir = 4;
+ZunniScriptParser.RULE_asignaciones = 5;
+ZunniScriptParser.RULE_pr = 6;
+ZunniScriptParser.RULE_expr = 7;
 
 class StartContext extends antlr4.ParserRuleContext {
 
@@ -543,6 +582,10 @@ class ExpresionesContext extends antlr4.ParserRuleContext {
         this.ruleIndex = ZunniScriptParser.RULE_expresiones;
     }
 
+	imprimir() {
+	    return this.getTypedRuleContext(ImprimirContext,0);
+	};
+
 	declaraciones() {
 	    return this.getTypedRuleContext(DeclaracionesContext,0);
 	};
@@ -600,6 +643,10 @@ class Declaracion_asignacionContext extends DeclaracionesContext {
 
 	ID() {
 	    return this.getToken(ZunniScriptParser.ID, 0);
+	};
+
+	IGUAL() {
+	    return this.getToken(ZunniScriptParser.IGUAL, 0);
 	};
 
 	expr() {
@@ -680,6 +727,49 @@ class DeclaracionContext extends DeclaracionesContext {
 
 ZunniScriptParser.DeclaracionContext = DeclaracionContext;
 
+class ImprimirContext extends antlr4.ParserRuleContext {
+
+    constructor(parser, parent, invokingState) {
+        if(parent===undefined) {
+            parent = null;
+        }
+        if(invokingState===undefined || invokingState===null) {
+            invokingState = -1;
+        }
+        super(parent, invokingState);
+        this.parser = parser;
+        this.ruleIndex = ZunniScriptParser.RULE_imprimir;
+    }
+
+	IMPRIMIR() {
+	    return this.getToken(ZunniScriptParser.IMPRIMIR, 0);
+	};
+
+	PARENT_ABIERTO() {
+	    return this.getToken(ZunniScriptParser.PARENT_ABIERTO, 0);
+	};
+
+	expr() {
+	    return this.getTypedRuleContext(ExprContext,0);
+	};
+
+	PARENT_CERRADO() {
+	    return this.getToken(ZunniScriptParser.PARENT_CERRADO, 0);
+	};
+
+	accept(visitor) {
+	    if ( visitor instanceof ZunniScriptVisitor ) {
+	        return visitor.visitImprimir(this);
+	    } else {
+	        return visitor.visitChildren(this);
+	    }
+	}
+
+
+}
+
+
+
 class AsignacionesContext extends antlr4.ParserRuleContext {
 
     constructor(parser, parent, invokingState) {
@@ -696,6 +786,10 @@ class AsignacionesContext extends antlr4.ParserRuleContext {
 
 	ID() {
 	    return this.getToken(ZunniScriptParser.ID, 0);
+	};
+
+	IGUAL() {
+	    return this.getToken(ZunniScriptParser.IGUAL, 0);
 	};
 
 	expr() {
@@ -773,8 +867,16 @@ class ParentesisContext extends ExprContext {
         super.copyFrom(ctx);
     }
 
+	PARENT_ABIERTO() {
+	    return this.getToken(ZunniScriptParser.PARENT_ABIERTO, 0);
+	};
+
 	expr() {
 	    return this.getTypedRuleContext(ExprContext,0);
+	};
+
+	PARENT_CERRADO() {
+	    return this.getToken(ZunniScriptParser.PARENT_CERRADO, 0);
 	};
 
 	accept(visitor) {
@@ -923,6 +1025,7 @@ ZunniScriptParser.StartContext = StartContext;
 ZunniScriptParser.ContenidoContext = ContenidoContext; 
 ZunniScriptParser.ExpresionesContext = ExpresionesContext; 
 ZunniScriptParser.DeclaracionesContext = DeclaracionesContext; 
+ZunniScriptParser.ImprimirContext = ImprimirContext; 
 ZunniScriptParser.AsignacionesContext = AsignacionesContext; 
 ZunniScriptParser.PrContext = PrContext; 
 ZunniScriptParser.ExprContext = ExprContext; 

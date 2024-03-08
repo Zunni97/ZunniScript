@@ -42,6 +42,12 @@ export default class ZunniScriptVisitor extends antlr4.tree.ParseTreeVisitor {
 	}
 
 
+	// Visit a parse tree produced by ZunniScriptParser#imprimir.
+	visitImprimir(ctx) {
+	  return this.visitChildren(ctx);
+	}
+
+
 	// Visit a parse tree produced by ZunniScriptParser#asignaciones.
 	visitAsignaciones(ctx) {
 	  return this.visitChildren(ctx);
