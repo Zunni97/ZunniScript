@@ -12,37 +12,38 @@ export default class CustomVisitor extends ZunniScriptVisitor {
 			"floz": [],
 			"zhar": []
 		};
+		this.impresiones = [];
 		this.errors = [];
 	}
   	// Visit a parse tree produced by CodeFileParser#start.
 	visitStart(ctx) {
 	console.log('Visitando Start');
 	this.visitChildren(ctx);
-    return [this.errors, this.variables];
+    return [this.errors, this.variables, this.impresiones];
 	}
 
 
 	// Visit a parse tree produced by CodeFileParser#content.
 	visitContenido(ctx) {
 		console.log('Visitando Contenido');
-	  return this.visitChildren(ctx);
+		return this.visitChildren(ctx);
 	}
 
   // Visit a parse tree produced by ZunniScriptParser#expresiones.
 	visitExpresiones(ctx) {
 		console.log('Visitando Expresiones');
-	  return this.visitChildren(ctx);
+		return this.visitChildren(ctx);
 	}
 
 	// Visit a parse tree produced by CodeFileParser#declaracion.
 	visitDeclaracion(ctx) {
 		console.log('Visitando Declaracion');
-    const pr = ctx.pr().getText();
+    	const pr = ctx.pr().getText();
 		const id = ctx.ID().getText();
 		
 		let is_variable_defined = this.variableExist(id);
 		if (!is_variable_defined){
-			this.variables[pr].push({"id":id, "value": undefined});
+			this.variables[pr].push({"id":id, "value": 'zundefined'});
 		} else {
 			this.errors.push(`Error: "${id}" ya existe`);
 		}
@@ -52,18 +53,18 @@ export default class CustomVisitor extends ZunniScriptVisitor {
 
 	// Visit a parse tree produced by CodeFileParser#declaracion_invalida.
 	visitDeclaracion_invalida(ctx) {
-    const pr = ctx.pr().getText();
+		const pr = ctx.pr().getText();
 		const id = ctx.invalido.text;
-		this.errors.push(`Error: ${id} no es valido`);
+			this.errors.push(`Error: ${id} no es valido`);
 
-		return [pr, id];
+			return [pr, id];
 	}
 
   visitDeclaracion_asignacion(ctx) {
 	console.log("Text")
 	const pr = ctx.pr().getText();
-  const id = ctx.ID().getText();
-  const valor = this.visit(ctx.expr());
+  	const id = ctx.ID().getText();
+  	const valor = this.visit(ctx.expr());
 
     let is_variable_defined = this.variableExist(id);
     if (!is_variable_defined) {
@@ -102,12 +103,12 @@ export default class CustomVisitor extends ZunniScriptVisitor {
 	visitImprimir(ctx) {
     // Obtener la expresión a imprimir
     const expresion = this.visit(ctx.expr());
-
     // Imprimir la expresión en la página
-    console.log(expresion); // O utiliza alguna otra lógica para mostrarlo en tu página
+    console.log(expresion);
 
-    // No necesitas devolver ningún valor
-    return null;
+	this.impresiones.push(`La expresion es "${expresion}"`);
+
+    return [expresion];
 	  }
 
 	// Visit a parse tree produced by ZunniScriptParser#pr.

@@ -5,6 +5,7 @@ import './ZScript.css';
 
 const HomePage = () => {
   const [codigo, setCodigo] = useState("");
+  const [impresiones, setImpresiones] = useState([]);
   const [resultado, setResultado] = useState("");
   const [errores, setErrores] = useState([]);
   const [numeroLineas, setNumeroLineas] = useState(1);
@@ -21,10 +22,11 @@ const HomePage = () => {
   }, [codigo]);
 
   const handleAnalizar = () => {
-    const [errores, resultado] = analizar(codigo);
+    const [errores, resultado, impresiones] = analizar(codigo);
     setResultado(resultado);
     console.log(errores);
     setErrores(errores);
+    setImpresiones(impresiones);
   };
 
   const generarNumerosLinea = () => {
@@ -64,6 +66,13 @@ const HomePage = () => {
           <ul>
             {errores.map((error, index) => (
               <li key={index}>{error}</li>
+            ))}
+          </ul>
+        </div>
+        <div className='impresiones'>
+          <ul>
+            {impresiones.map((impresion, index) => (
+              <li key={index}>{impresion}</li>
             ))}
           </ul>
         </div>
