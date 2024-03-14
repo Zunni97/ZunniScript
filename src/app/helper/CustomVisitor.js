@@ -106,10 +106,22 @@ export default class CustomVisitor extends ZunniScriptVisitor {
     // Imprimir la expresión en la página
     console.log(expresion);
 
-	this.impresiones.push(`La expresion es "${expresion}"`);
+	this.impresiones.push(expresion);
 
     return [expresion];
 	  }
+
+	// Visit a parse tree produced by ZunniScriptParser#condicional.
+	visitCondicional(ctx) {
+		return this.visitChildren(ctx);
+	}
+  
+  
+	// Visit a parse tree produced by ZunniScriptParser#condicion.
+	visitCondicion(ctx) {
+		return this.visitChildren(ctx);
+	}
+
 
 	// Visit a parse tree produced by ZunniScriptParser#pr.
 	visitPr(ctx) {

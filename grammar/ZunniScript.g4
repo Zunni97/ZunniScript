@@ -15,6 +15,8 @@ expresiones: imprimir
             declaraciones
             |
             asignaciones
+            |
+            condicional
             // |
             // error
             ;
@@ -28,6 +30,10 @@ declaraciones:
             ;
 
 imprimir: IMPRIMIR PARENT_ABIERTO expr PARENT_CERRADO;
+
+condicional: IF PARENT_ABIERTO condicion PARENT_CERRADO LLAVE_ABIERTA expresiones* LLAVE_CERRADA;
+
+condicion: expr IF_COND expr;
 
 asignaciones: ID IGUAL expr
 ;
@@ -49,8 +55,3 @@ expr: expr op=('*'|'/') expr        # MulDiv
 | ID                                # id
 | '(' expr ')'                      # parentesis
 ;
-
-MUL: '*';
-DIV: '/';
-SUM: '+';
-RES: '-';

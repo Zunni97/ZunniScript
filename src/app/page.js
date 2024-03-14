@@ -13,6 +13,7 @@ const HomePage = () => {
   const handleChange = (event) => {
     setCodigo(event.target.value);
     setErrores([]);
+    setImpresiones([]);
   };
 
   useEffect(() => {
